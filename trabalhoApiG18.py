@@ -149,50 +149,8 @@ class VinculacaoRet(BaseModel):
 @router.post("/v1/vinculacao", 
              response_model=VinculacaoRet,
              summary="Vincula Itens da Nota Fiscal do SPED com os itens do XML da NFe",
-	    description="""
-    **Exemplo de JSON de entrada:**<br><br>
-    ```json
-    {
-      "chv_nfe": "31240161365557000110550010009047751102632318",
-      "itens_efd": [    
-        {
-          "seq": 1,
-          "cod_item": "000001",
-          "desc_item": "MANTEIGA AVIAÇÃO TABL.S/S C/12",
-          "qt_item": 24,
-          "valor_un": 150.00,
-          "valor_total": 3600.0
-        },
-        {
-          "seq": 2,
-          "cod_item": "000002",
-          "desc_item": "MANTEIGA AVIAÇÃO TABL.S/S C/24",
-          "qt_item": 114,
-          "valor_un": 292.95,
-          "valor_total": 7030.8
-        }   
-      ],
-      "itens_xml": [
-        {
-          "seq": 1,
-          "cod_item": "000001",
-          "desc_item": "MANTEIGA AVIAÇÃO TABLETE C/24",
-          "qt_item": 114,
-          "valor_un": 292.95,
-          "valor_total": 7030.8
-        },
-        {
-          "seq": 2,
-          "cod_item": "000001",
-          "desc_item": "MANTEIGA AVIAÇÃO TABLETE C/12",
-          "qt_item": 24,
-          "valor_un": 150.00,
-          "valor_total": 3600.0
-        }    
-      ]
-    }
-    ```
-    """
+	    description="{"api_token: 1234567890 <br>Request body":"31240161365557000110550010009047751102632318","itens_efd":[{"seq":1,"cod_item":"000001","desc_item":"MANTEIGA AVIAÇÃO TABL.S/S C/12","qt_item":24,"valor_un":150.00,"valor_total":3600.0},{"seq":2,"cod_item":"000002","desc_item":"MANTEIGA AVIAÇÃO TABL.S/S C/24","qt_item":114,"valor_un":292.95,"valor_total":7030.8}],"itens_xml":[{"seq":1,"cod_item":"000001","desc_item":"MANTEIGA AVIAÇÃO TABLETE C/24","qt_item":114,"valor_un":292.95,"valor_total":7030.8},{"seq":2,"cod_item":"000001","desc_item":"MANTEIGA AVIAÇÃO TABLETE C/12","qt_item":24,"valor_un":150.00,"valor_total":3600.0}]}
+"
 )
 def analisar_vinculacao(req: VinculacaoReq):
     logger.info('chv_nfe -> ' + req.chv_nfe)
