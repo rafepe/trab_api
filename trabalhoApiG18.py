@@ -146,7 +146,8 @@ class VinculacaoRet(BaseModel):
 
 @router.post("/v1/vinculacao", 
              response_model=VinculacaoRet,
-             summary="Vincula Itens da Nota Fiscal do SPED com os itens do XML da NFe")
+             summary="Vincula Itens da Nota Fiscal do SPED com os itens do XML da NFe",
+	    description="Chave: 31240161365557000110550010009047751102632318")
 def analisar_vinculacao(req: VinculacaoReq):
     logger.info('chv_nfe -> ' + req.chv_nfe)
     itens_efd = CABECALHO + '\n' + formatar_itens(req.itens_efd)
