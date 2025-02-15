@@ -5,7 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 
 import os
-from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 import openai
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
