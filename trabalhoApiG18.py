@@ -46,10 +46,13 @@ router = FastAPI(
 )
 
 # Metódo da API para consulta dos dados da NFe 
+descricao = (
+    "chaveNFe: 31240161365557000110550010009047751102632318\n"
+    "api_token: 1234567890"
+)
 @router.get("/v1/nfe",
 	    summary="Consulta dados completo da NFe",
-	    description="""chaveNFe: 31240161365557000110550010009047751102632318
-     api_token: 1234567890""")
+	    description=descricao)
 def consultaNfe(chaveNFe: str):
     logger.info('chaveNFe->' + chaveNFe)
     # Faz a requisição POST com body vazio
