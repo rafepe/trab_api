@@ -113,7 +113,7 @@ def getItesNFe(chaveNFe: str):
     llm = ChatOpenAI(temperature=0, model=MODEL_GPT)
 
 	# Enviar o prompt diretamente para o modelo
-    resposta = llm.invoke(prompt)
+    resposta = llm.predict(prompt)
     resposta = resposta.replace('```plaintext', '')
     resposta = resposta.replace('```', '')
     logger.info('resposta ->' + resposta)
@@ -166,7 +166,7 @@ def analisar_vinculacao(req: VinculacaoReq):
     llm = ChatOpenAI(temperature=0, model=MODEL_GPT)
 
 	# Enviar o prompt diretamente para o modelo
-    resposta = llm.invoke(prompt)
+    resposta = llm.predict(prompt)
     #logger.info('resposta ->' + resposta)
     #logger.info('resposta ->\n' + extrair_json(resposta))
     
