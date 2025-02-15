@@ -51,12 +51,10 @@ def consultaNfe(chaveNFe: str):
     logger.info('chaveNFe->' + chaveNFe)
     # Faz a requisição POST com body vazio
     response =  getXmlNFe(chaveNFe)
-    logger.info(response.status_code)
-    #logger.info(response.text)
 
     # Verifica se a resposta é bem-sucedida
-    if response.status_code == status.HTTP_200_OK or (response.text and response.text.strip):
-        return xml_to_json(response.text)
+    if response and response.strip:
+        return xml_to_json(response)
     else:
         return {"resultado": response.status_code}
 
