@@ -48,7 +48,7 @@ router = FastAPI(
 # Metódo da API para consulta dos dados da NFe 
 @router.get("/v1/nfe", summary="Consulta dados completo da NFe")
 def consultaNfe(chaveNFe: str):
-    logger('chaveNFe->' + chaveNFe)
+    logger.info('chaveNFe->' + chaveNFe)
     # Faz a requisição POST com body vazio
     response =  getXmlNFe(chaveNFe)
     logger.info(response.status_code)
